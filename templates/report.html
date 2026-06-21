@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Malware Analysis Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 40px;
+            background: #f5f7fa;
+            color: #1a1a2e;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0a192f;
+            border-bottom: 3px solid #4fc3f7;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0a192f;
+            margin-top: 25px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        .verdict {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .malicious { background: #ff6b6b; color: white; }
+        .suspicious { background: #ffa502; color: white; }
+        .benign { background: #2ed573; color: white; }
+        .unknown { background: #95a5a6; color: white; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #34495e;
+            color: white;
+        }
+        .finding {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 4px solid #4fc3f7;
+        }
+        .finding pre {
+            white-space: pre-wrap;
+            background: #f1f1f1;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        .meta {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 30px;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .score-bar {
+            background: #ecf0f1;
+            border-radius: 10px;
+            height: 20px;
+            width: 100%;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .score-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+        .ioc-list {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Malware Analysis Report</h1>
+        <p class="meta">
+            <strong>Generated:</strong> {{ timestamp }}<br>
+            <strong>File:</strong> {{ result.file }}<br>
+            <strong>Unpacked:</strong> {{ 'Yes' if result.unpacked else 'No' }}
+        </p>
+
+        <div class="verdict {{ result.verdict.lower() }}">
+            <strong>Verdict: {{ result.verdict.upper() }}</strong>
+            <span style="font-size: 16px; margin-left: 20px;">Score: {{ result.score }}/100</span>
+        </div>
+
+        <div class="score-bar">
+            <div class="score-fill" style="width: {{ result.score }}%; background: 
+                {% if result.score >= 70 %}#ff6b6b
+                {% elif result.score >= 40 %}#ffa502
+                {% else %}#2ed573
+                {% endif %};">
+            </div>
+        </div>
+
+        <h2>📊 Findings ({{ result.findings|length }})</h2>
+        {% if result.findings %}
+            {% for f in result.findings %}
+            <div class="finding">
+                <strong>{{ f.source }}</strong><br>
+                <pre>{{ f|tojson(indent=2) }}</pre>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>✅ No suspicious findings detected.</p>
+        {% endif %}
+
+        <h2>🌐 Indicators of Compromise</h2>
+        {% if result.iocs %}
+            <div class="ioc-list">
+                <ul>
+                {% for ioc in result.iocs %}
+                    <li><pre style="margin: 2px 0;">{{ ioc[:300] }}{% if ioc|length > 300 %}...{% endif %}</pre></li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>No IOCs extracted.</p>
+        {% endif %}
+
+        <h2>🔍 Threat Intelligence</h2>
+        {% if result.threat_intel and result.threat_intel.virustotal %}
+            <table>
+                <tr>
+                    <th>Source</th>
+                    <th>Data</th>
+                </tr>
+                <tr>
+                    <td>VirusTotal</td>
+                    <td><pre>{{ result.threat_intel.virustotal|tojson(indent=2) }}</pre></td>
+                </tr>
+            </table>
+        {% else %}
+            <p>No threat intelligence data available.</p>
+        {% endif %}
+
+        <h2>📈 Summary</h2>
+        <ul>
+            <li><strong>Analysis Time:</strong> {{ timestamp }}</li>
+            <li><strong>Detection Score:</strong> {{ result.score }}/100</li>
+            <li><strong>Findings Count:</strong> {{ result.findings|length }}</li>
+            <li><strong>IOCs Extracted:</strong> {{ result.iocs|length }}</li>
+        </ul>
+
+        <div class="footer">
+            <p>Generated by <strong>Virus Analysis Platform</strong></p>
+            <p>This report is for informational purposes only.</p>
+        </div>
+    </div>
+</body>
+</html>
