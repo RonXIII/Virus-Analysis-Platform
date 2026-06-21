@@ -71,17 +71,17 @@ Train models – In the Train tab, point to your malware and benign folders, the
 
 Scan files – Use the Scan tab to analyze suspicious files.
 
-🏗️ 1. Building the .exe:
+## 🏗️ Building the .exe:
    ```bash
    pyinstaller virus_scanner.spec
 
 The output will be in dist/VirusScanner/. The application uses onedir mode so that profiles.db remains writable for saving API keys.
 
 
-🔐 Profile & Security
+## 🔐 Profile & Security
 Profiles are stored locally in profiles.db (SQLite). API keys are encrypted using Fernet (AES) with a key derived from your password. Passwords are salted and hashed – never stored in plain text. The profiles.db file is ignored by Git – your keys are never exposed.
 
-📂 Project Structure
+## 📂 Project Structure
 virus-analysis-platform/
 ├── gui_main.py              # Main GUI application
 ├── profile_manager.py       # Profile & API key encryption
@@ -101,7 +101,7 @@ virus-analysis-platform/
 │       └── malware.yar      # Sample YARA rules
 └── models/                  # Trained models (created by user)
 
-🧰 Dependencies
+## 🧰 Dependencies
 Package	Purpose
 scikit-learn	Random Forest ML detection
 tensorflow	CNN deep learning (optional)
@@ -113,7 +113,7 @@ Pillow	GUI icon support
 pyinstaller	Building the .exe
 See requirements.txt for the full list.
 
-⚠️ Important Notes
+## ⚠️ Important Notes
 Malware samples are dangerous – always handle them inside an isolated VM. 7‑Zip must be installed for extracting LZMA-compressed ZIP files. TensorFlow is optional – if you don't need CNN training, comment it out in requirements.txt to keep the .exe small. to prepare a separate benign using this code 
 for %e in (exe dll sys) do xcopy C:\Windows\System32\*.%e C:\Users\Admin\Desktop\Virus analysis\benign_samples\ /E /Y
 
@@ -127,7 +127,7 @@ Now you have a properly prepared benign samples folder for training.
 
 
 
-🤝 Contributing
+## 🤝 Contributing
 We welcome contributions from the community! Here's how you can help:
 
 How to Contribute:
@@ -150,7 +150,7 @@ How to Contribute:
 
 
 
-Guidelines:
+## Guidelines:
 
 Follow the existing code style and naming conventions.
 
@@ -178,19 +178,19 @@ Performance optimization – Speed up scanning and training
 
 
 
-Reporting Issues:
+## Reporting Issues:
 Found a bug or have a suggestion? Please open an issue on GitHub with a clear description of the problem or suggestion, steps to reproduce (if a bug), and screenshots or logs (if applicable).
 
 
 
-🙏 Acknowledgements
+## 🙏 Acknowledgements
 This project stands on the shoulders of giants. Special thanks to MalwareBazaar for providing a free, open repository of malware samples, TheZoo for curating a collection of live malware for research, MalShare for offering free API access to malware samples, YARA for the powerful pattern-matching engine, scikit-learn for the Random Forest ML implementation, TensorFlow for the deep learning framework (optional), abuse.ch for MalwareBazaar and threat intelligence platforms, PEfile for PE file parsing library, PyInstaller for packaging Python applications into executables, and Python for the programming language that powers it all.
 
 Individual thanks go to the open-source community for creating and maintaining the incredible libraries used in this project, security researchers worldwide who contribute samples to MalwareBazaar and other repositories, and everyone who has starred, forked, or contributed to this project – you make it better!
 
 
 
-📬 Contact
+## 📬 Contact
 Author: Aaron Chuah
 GitHub: RonXIII (https://github.com/RonXIII)
 Email: Tiongenxiii@gmail.com
@@ -199,7 +199,7 @@ For security vulnerabilities, please do not create a public issue. Instead, cont
 
 
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License.
 
 MIT License
@@ -214,10 +214,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 
-⭐ Support the Project
+## ⭐ Support the Project
 If you find this tool useful, please consider starring the repository on GitHub, sharing it with colleagues and friends, contributing code, documentation, or bug reports, and reporting issues and suggesting improvements. Your support helps keep this project alive and growing!
 
-📌 Version History
+## 📌 Version History
 v4.0 (June 2026) – Complete rewrite with profile system, multi-source downloaders, and enhanced GUI
 v3.0 (May 2026) – Added CNN training and 7‑Zip fallback
 v2.0 (April 2026) – Added YARA and Random Forest detection
@@ -225,7 +225,7 @@ v1.0 (March 2026) – Initial release
 
 
 
-🚀 Roadmap
+## 🚀 Roadmap
 Planned features for future releases:
 
 Support for ELF and Mach-O binaries
@@ -247,6 +247,7 @@ Batch scanning of multiple files
 Schedule periodic model retraining
 
 Thank you for using the Virus Analysis Platform! Stay safe, and happy analyzing!
+## Screenshots
 
 <img width="399" height="377" alt="Screenshot 2026-06-21 181447" src="https://github.com/user-attachments/assets/9c3f4dd9-4670-4dad-8733-8a7076829be2" />
 <img width="1143" height="1058" alt="Screenshot 2026-06-21 181517" src="https://github.com/user-attachments/assets/c737cc55-64c2-4c7d-be67-20637befcb53" />
