@@ -58,7 +58,7 @@ A comprehensive, offline-first malware analysis platform with static and machine
    ```bash
    pip install -r requirements.txt
 
-3. Run the application:
+4. Run the application:
    ```bash
    py gui_main.py
 
@@ -71,7 +71,7 @@ Train models – In the Train tab, point to your malware and benign folders, the
 
 Scan files – Use the Scan tab to analyze suspicious files.
 
-🏗️ Building the .exe
+🏗️ 1. Building the .exe:
    ```bash
    pyinstaller virus_scanner.spec
 
