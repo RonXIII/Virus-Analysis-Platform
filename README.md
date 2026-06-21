@@ -72,8 +72,8 @@ Train models – In the Train tab, point to your malware and benign folders, the
 Scan files – Use the Scan tab to analyze suspicious files.
 
 🏗️ Building the .exe
-```bash
-pyinstaller virus_scanner.spec
+   ```bash
+   pyinstaller virus_scanner.spec
 
 The output will be in dist/VirusScanner/. The application uses onedir mode so that profiles.db remains writable for saving API keys.
 
@@ -135,16 +135,16 @@ How to Contribute:
 1.Fork the repository.
 
 2.Create a new branch for your feature or bugfix:
-```bash
-git checkout -b feature/your-feature-name
+   ```bash
+   git checkout -b feature/your-feature-name
 
 3.Commit your changes
-```bash
-git commit -m "Add your descriptive commit message"
+   ```bash
+   git commit -m "Add your descriptive commit message"
 
 4.Push to your branch:
-```bash
-git push origin feature/your-feature-name
+   ```bash
+   git push origin feature/your-feature-name
 
 5.Open a Pull Request against the main branch.
 
@@ -248,8 +248,8 @@ Schedule periodic model retraining
 
 Thank you for using the Virus Analysis Platform! Stay safe, and happy analyzing!
 
-<img width="399" height="377" alt="Screenshot 2026-06-21 181447" src="https://github.com/user-attachments/assets/9c3f4dd9-4670-4dad-8733-8a7076829be2" /><br>
-<img width="1143" height="1058" alt="Screenshot 2026-06-21 181517" src="https://github.com/user-attachments/assets/c737cc55-64c2-4c7d-be67-20637befcb53" /><br>
+<img width="399" height="377" alt="Screenshot 2026-06-21 181447" src="https://github.com/user-attachments/assets/9c3f4dd9-4670-4dad-8733-8a7076829be2" />
+<img width="1143" height="1058" alt="Screenshot 2026-06-21 181517" src="https://github.com/user-attachments/assets/c737cc55-64c2-4c7d-be67-20637befcb53" />
 <img width="1708" height="878" alt="Screenshot 2026-06-21 182244" src="https://github.com/user-attachments/assets/c05779d2-4374-4906-835f-8250bd36ab6d" />
 <img width="1713" height="880" alt="Screenshot 2026-06-21 182306" src="https://github.com/user-attachments/assets/cdde814a-2adb-46f2-ba55-85bf2d7c47d7" />
 <img width="1716" height="880" alt="Screenshot 2026-06-21 182358" src="https://github.com/user-attachments/assets/aa4a7657-3671-4909-83f8-81ae7b080c40" />
