@@ -20,6 +20,8 @@
 
 A comprehensive, offline-first malware analysis platform with static and machine learning-based detection, secure profile management, and multi-source malware acquisition.
 
+---
+
 ## ✨ Features
 
 - **Static Analysis** – YARA rule scanning + PE header analysis + entropy and byte n‑gram feature extraction
@@ -32,6 +34,8 @@ A comprehensive, offline-first malware analysis platform with static and machine
 - **Real-Time Progress** – Training and download progress bars with percentage completion
 - **Model Status** – View when your models were last updated
 
+---
+
 ## 📋 Prerequisites
 
 | Requirement | Version / Notes |
@@ -42,47 +46,66 @@ A comprehensive, offline-first malware analysis platform with static and machine
 | **7‑Zip** | Required for extracting LZMA-compressed samples |
 | **Operating System** | Windows 10 / 11 (64‑bit) |
 
+---
+
 ## 🚀 Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/RonXIII/virus-analysis-platform.git
    cd virus-analysis-platform
+   ```
 
-2. Create a virtual environment (Recommended):
+2. Create a virtual environment (recommended):
    ```bash
    python -m venv venv
    venv\Scripts\activate
+   ```
 
 3. Install dependencies:
    ```bash
    pip install -r requirements.txt
+   ```
 
 4. Run the application:
    ```bash
-   py gui_main.py
+   python gui_main.py
+   ```
 
-🧪 Quick Start
-Create a profile – On first launch, click "Create Account" and set a username and password.
+---
 
-Download samples – Go to the Download tab, select a source, and click "Download".
+## 🧪 Quick Start
 
-Train models – In the Train tab, point to your malware and benign folders, then click "Train RF" or "Train CNN".
+1. **Create a profile** – On first launch, click "Create Account" and set a username and password.
+2. **Download samples** – Go to the Download tab, select a source, and click "Download".
+3. **Train models** – In the Train tab, point to your malware and benign folders, then click "Train RF" or "Train CNN".
+4. **Scan files** – Use the Scan tab to analyze suspicious files.
 
-Scan files – Use the Scan tab to analyze suspicious files.
+---
 
 ## 🏗️ Building the `.exe`
 
+<<<<<<< Updated upstream
+## 🏗️ Building the `.exe`
+
+=======
+>>>>>>> Stashed changes
 ```bash
 pyinstaller virus_scanner.spec
+```
 
-The output will be in dist/VirusScanner/. The application uses onedir mode so that profiles.db remains writable for saving API keys.
+The output will be in `dist/VirusScanner/`. The application uses `onedir` mode so that `profiles.db` remains writable for saving API keys.
 
+<<<<<<< Updated upstream
+=======
+---
+>>>>>>> Stashed changes
 
 ## 🔐 Profile & Security
 
 Profiles are stored locally in `profiles.db` (SQLite). API keys are encrypted using Fernet (AES) with a key derived from your password. Passwords are salted and hashed – never stored in plain text. The `profiles.db` file is ignored by Git – your keys are never exposed.
 
+<<<<<<< Updated upstream
 ## 📂 Project Structure
 virus-analysis-platform/
 ├── gui_main.py # Main GUI application
@@ -106,6 +129,37 @@ virus-analysis-platform/
 │ └── report.html # Report template
 └── models/ # Trained models (created by user)
 
+=======
+---
+
+## 📂 Project Structure
+
+```
+virus-analysis-platform/
+├── gui_main.py              # Main GUI application
+├── profile_manager.py       # Profile & API key encryption
+├── gui_downloaders.py       # Malware downloaders
+├── config.py                # Configuration
+├── requirements.txt         # Python dependencies
+├── virus_scanner.spec       # PyInstaller build spec
+├── core/
+│   ├── __init__.py
+│   ├── scanner.py           # Main scanner orchestrator
+│   ├── yara_engine.py       # YARA rule engine
+│   ├── ml_detector.py       # Random Forest detector
+│   ├── deep_ml.py           # CNN detector (optional)
+│   ├── anti_evasion.py      # Anti-debugging/VM detection
+│   └── reporting.py         # Report generator
+├── rules/
+│   └── yara/
+│       └── malware.yar      # Sample YARA rules
+├── templates/
+│   └── report.html          # Report template
+└── models/                  # Trained models (created by user)
+```
+
+---
+>>>>>>> Stashed changes
 
 ## 🧰 Dependencies
 
@@ -122,6 +176,7 @@ virus-analysis-platform/
 
 See `requirements.txt` for the full list.
 
+<<<<<<< Updated upstream
 ## ⚠️ Important Notes
 
 - **Malware samples** are dangerous – always handle them inside an isolated VM.
@@ -129,16 +184,31 @@ See `requirements.txt` for the full list.
 - **TensorFlow** is optional – if you don't need CNN training, comment it out in `requirements.txt` to keep the `.exe` small.
 - **PDF reports** require `wkhtmltopdf` to be installed on the system. If not, only HTML reports are generated.
 - **Do not include malware samples** in the benign folder – it will confuse the model.
+=======
+---
 
+## ⚠️ Important Notes
+>>>>>>> Stashed changes
 
+- **Malware samples** are dangerous – always handle them inside an isolated VM.
+- **7‑Zip** must be installed for extracting LZMA-compressed ZIP files.
+- **TensorFlow** is optional – if you don't need CNN training, comment it out in `requirements.txt` to keep the `.exe` small.
+- **PDF reports** require `wkhtmltopdf` to be installed on the system. If not, only HTML reports are generated.
+- **Do not include malware samples** in the benign folder – it will confuse the model.
+
+---
 
 ## 🤝 Contributing
+<<<<<<< Updated upstream
 We welcome contributions from the community! Here's how you can help:
+=======
+>>>>>>> Stashed changes
 
-How to Contribute:
+We welcome contributions from the community!
 
-1.Fork the repository.
+### How to Contribute
 
+<<<<<<< Updated upstream
 2.Create a new branch for your feature or bugfix:
    ```bash
    git checkout -b feature/your-feature-name
@@ -150,37 +220,87 @@ How to Contribute:
 4.Push to your branch:
    ```bash
    git push origin feature/your-feature-name
+=======
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your descriptive commit message"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request against the `main` branch.
 
-5.Open a Pull Request against the main branch.
+### Guidelines
 
+- Follow the existing code style and naming conventions.
+- Include docstrings and comments for new functions and classes.
+- Test your changes thoroughly before submitting.
+- Update the README if you add new features.
+>>>>>>> Stashed changes
+
+### Areas Where Help Is Needed
+
+<<<<<<< Updated upstream
 
 
 ## Guidelines:
+=======
+- Additional YARA rule sets – Expand detection coverage
+- New malware sources – Integrate VirusTotal, Hybrid Analysis, etc.
+- Improved feature extraction – Better ML features for higher accuracy
+- UI/UX improvements – Make the interface even more polished
+- Bug fixes – Squash any issues you find
+- Documentation – Improve or translate documentation
+- Performance optimization – Speed up scanning and training
+>>>>>>> Stashed changes
 
-Follow the existing code style and naming conventions.
+### Reporting Issues
 
-Include docstrings and comments for new functions and classes.
+Found a bug or have a suggestion? Please open an issue on GitHub with:
+- A clear description of the problem or suggestion
+- Steps to reproduce (if a bug)
+- Screenshots or logs (if applicable)
 
-Test your changes thoroughly before submitting.
+---
 
-Update the README if you add new features.
+## 🙏 Acknowledgements
 
-Areas Where Help Is Needed:
+This project stands on the shoulders of giants. Special thanks to:
 
-Additional YARA rule sets – Expand detection coverage
+- [MalwareBazaar](https://bazaar.abuse.ch) – Free, open repository of malware samples
+- [TheZoo](https://github.com/ytisf/theZoo) – Curated collection of live malware for research
+- [MalShare](https://malshare.com) – Free API access to malware samples
+- [YARA](https://virustotal.github.io/yara/) – Powerful pattern-matching engine
+- [scikit-learn](https://scikit-learn.org/) – Random Forest ML implementation
+- [TensorFlow](https://www.tensorflow.org/) – Deep learning framework (optional)
+- [abuse.ch](https://abuse.ch) – MalwareBazaar and threat intelligence platforms
+- [PEfile](https://github.com/erocarrera/pefile) – PE file parsing library
+- [PyInstaller](https://pyinstaller.org/) – Packaging Python applications into executables
+- [Python](https://www.python.org/) – The programming language that powers it all
 
-New malware sources – Integrate VirusTotal, Hybrid Analysis, etc.
+### Individual Thanks
 
-Improved feature extraction – Better ML features for higher accuracy
+- The open-source community for creating and maintaining the incredible libraries used in this project.
+- Security researchers worldwide who contribute samples to MalwareBazaar and other repositories.
+- Everyone who has starred, forked, or contributed to this project – you make it better!
 
-UI/UX improvements – Make the interface even more polished
+---
 
-Bug fixes – Squash any issues you find
+## 📬 Contact
 
-Documentation – Improve or translate documentation
+- **Author:** Aaron Chuah
+- **GitHub:** [RonXIII](https://github.com/RonXIII)
+- **Email:** [Tiongenxiii@gmail.com](mailto:Tiongenxiii@gmail.com)
 
-Performance optimization – Speed up scanning and training
+For security vulnerabilities, please **do not** create a public issue. Instead, contact the author directly via GitHub (private) or email.
 
+<<<<<<< Updated upstream
 
 
 ## Reporting Issues:
@@ -190,9 +310,15 @@ Found a bug or have a suggestion? Please open an issue on GitHub with a clear de
 
 ## 🙏 Acknowledgements
 This project stands on the shoulders of giants. Special thanks to MalwareBazaar for providing a free, open repository of malware samples, TheZoo for curating a collection of live malware for research, MalShare for offering free API access to malware samples, YARA for the powerful pattern-matching engine, scikit-learn for the Random Forest ML implementation, TensorFlow for the deep learning framework (optional), abuse.ch for MalwareBazaar and threat intelligence platforms, PEfile for PE file parsing library, PyInstaller for packaging Python applications into executables, and Python for the programming language that powers it all.
+=======
+For general questions, feature requests, or discussions, feel free to open an issue or reach out.
 
-Individual thanks go to the open-source community for creating and maintaining the incredible libraries used in this project, security researchers worldwide who contribute samples to MalwareBazaar and other repositories, and everyone who has starred, forked, or contributed to this project – you make it better!
+---
+>>>>>>> Stashed changes
 
+## 📄 License
+
+<<<<<<< Updated upstream
 
 
 ## 📬 Contact
@@ -205,18 +331,35 @@ For security vulnerabilities, please do not create a public issue. Instead, cont
 
 
 ## 📄 License
+=======
+>>>>>>> Stashed changes
 This project is licensed under the MIT License.
 
+```
 MIT License
 
 Copyright (c) 2026 Aaron Chuah
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
+<<<<<<< Updated upstream
 
 
 ## ⭐ Support the Project
@@ -231,14 +374,53 @@ v1.0 (March 2026) – Initial release
 
 
 ## 🚀 Roadmap
+=======
+---
+
+## ⭐ Support the Project
+
+If you find this tool useful, please consider:
+
+- **Starring** the repository on GitHub
+- **Sharing** it with colleagues and friends
+- **Contributing** code, documentation, or bug reports
+- **Reporting** issues and suggesting improvements
+
+Your support helps keep this project alive and growing!
+
+---
+
+## 📌 Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| v4.0 | June 2026 | Complete rewrite with profile system, multi-source downloaders, and enhanced GUI |
+| v3.0 | May 2026 | Added CNN training and 7‑Zip fallback |
+| v2.0 | April 2026 | Added YARA and Random Forest detection |
+| v1.0 | March 2026 | Initial release |
+
+---
+
+## 🚀 Roadmap
+
+>>>>>>> Stashed changes
 Planned features for future releases:
 
-Support for ELF and Mach-O binaries
+- [ ] Support for ELF and Mach-O binaries
+- [ ] Integration with VirusTotal API
+- [ ] Cloud-based sandbox integration
+- [ ] Automated YARA rule generation from ML results
+- [ ] Export results in STIX/TAXII format
+- [ ] Multi-language support (GUI translations)
+- [ ] Dark/light theme toggle
+- [ ] Batch scanning of multiple files
+- [ ] Schedule periodic model retraining
 
-Integration with VirusTotal API
+---
 
-Cloud-based sandbox integration
+**Thank you for using the Virus Analysis Platform!** 🛡️
 
+<<<<<<< Updated upstream
 Automated YARA rule generation from ML results
 
 Export results in STIX/TAXII format
@@ -266,3 +448,6 @@ Thank you for using the Virus Analysis Platform! Stay safe, and happy analyzing!
 
 
 
+=======
+Stay safe, and happy analyzing! 🔍
+>>>>>>> Stashed changes
