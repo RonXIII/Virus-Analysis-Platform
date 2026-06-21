@@ -1,4 +1,4 @@
-1.  # 🛡️ Virus Analysis Platform (Title)
+1.  # 🛡️ Virus Analysis Platform
 2.  ✨ Features
 3.  📋 Prerequisites
 4.  🚀 Installation
@@ -71,59 +71,64 @@ Train models – In the Train tab, point to your malware and benign folders, the
 
 Scan files – Use the Scan tab to analyze suspicious files.
 
-## 🏗️ Building the .exe:
-   ```bash
-   pyinstaller virus_scanner.spec
+## 🏗️ Building the `.exe`
+
+```bash
+pyinstaller virus_scanner.spec
 
 The output will be in dist/VirusScanner/. The application uses onedir mode so that profiles.db remains writable for saving API keys.
 
 
 ## 🔐 Profile & Security
-Profiles are stored locally in profiles.db (SQLite). API keys are encrypted using Fernet (AES) with a key derived from your password. Passwords are salted and hashed – never stored in plain text. The profiles.db file is ignored by Git – your keys are never exposed.
+
+Profiles are stored locally in `profiles.db` (SQLite). API keys are encrypted using Fernet (AES) with a key derived from your password. Passwords are salted and hashed – never stored in plain text. The `profiles.db` file is ignored by Git – your keys are never exposed.
 
 ## 📂 Project Structure
 virus-analysis-platform/
-├── gui_main.py              # Main GUI application
-├── profile_manager.py       # Profile & API key encryption
-├── gui_downloaders.py       # Malware downloaders (MalwareBazaar, TheZoo, MalShare)
-├── config.py                # Configuration
-├── requirements.txt         # Python dependencies
-├── virus_scanner.spec       # PyInstaller build spec
+├── gui_main.py # Main GUI application
+├── profile_manager.py # Profile & API key encryption
+├── gui_downloaders.py # Malware downloaders
+├── config.py # Configuration
+├── requirements.txt # Python dependencies
+├── virus_scanner.spec # PyInstaller build spec
 ├── core/
-│   ├── scanner.py           # Main scanner orchestrator
-│   ├── yara_engine.py       # YARA rule engine
-│   ├── ml_detector.py       # Random Forest detector
-│   ├── deep_ml.py           # CNN detector (optional)
-│   ├── anti_evasion.py      # Anti-debugging/VM detection
-│   └── ...                  # Additional modules
+│ ├── init.py
+│ ├── scanner.py # Main scanner orchestrator
+│ ├── yara_engine.py # YARA rule engine
+│ ├── ml_detector.py # Random Forest detector
+│ ├── deep_ml.py # CNN detector (optional)
+│ ├── anti_evasion.py # Anti-debugging/VM detection
+│ └── reporting.py # Report generator
 ├── rules/
-│   └── yara/
-│       └── malware.yar      # Sample YARA rules
-└── models/                  # Trained models (created by user)
+│ └── yara/
+│ └── malware.yar # Sample YARA rules
+├── templates/
+│ └── report.html # Report template
+└── models/ # Trained models (created by user)
+
 
 ## 🧰 Dependencies
-Package	Purpose
-scikit-learn	Random Forest ML detection
-tensorflow	CNN deep learning (optional)
-pefile	PE header parsing
-yara-python	YARA rule scanning
-cryptography	Secure API key encryption
-requests	HTTP requests for downloads
-Pillow	GUI icon support
-pyinstaller	Building the .exe
-See requirements.txt for the full list.
+
+| Package | Purpose |
+|---------|---------|
+| `scikit-learn` | Random Forest ML detection |
+| `tensorflow` | CNN deep learning (optional) |
+| `pefile` | PE header parsing |
+| `yara-python` | YARA rule scanning |
+| `cryptography` | Secure API key encryption |
+| `requests` | HTTP requests for downloads |
+| `Pillow` | GUI icon support |
+| `pyinstaller` | Building the `.exe` |
+
+See `requirements.txt` for the full list.
 
 ## ⚠️ Important Notes
-Malware samples are dangerous – always handle them inside an isolated VM. 7‑Zip must be installed for extracting LZMA-compressed ZIP files. TensorFlow is optional – if you don't need CNN training, comment it out in requirements.txt to keep the .exe small. to prepare a separate benign using this code 
-for %e in (exe dll sys) do xcopy C:\Windows\System32\*.%e C:\Users\Admin\Desktop\Virus analysis\benign_samples\ /E /Y
 
-Do not include malware samples in the benign folder – it will confuse the model.
-
-Never run or double‑click any files from the benign folder – they are still system executables, but they are safe to read (training only reads bytes).
-
-You can delete the folder after training, but it's useful to keep for retraining.
-
-Now you have a properly prepared benign samples folder for training.
+- **Malware samples** are dangerous – always handle them inside an isolated VM.
+- **7‑Zip** must be installed for extracting LZMA-compressed ZIP files.
+- **TensorFlow** is optional – if you don't need CNN training, comment it out in `requirements.txt` to keep the `.exe` small.
+- **PDF reports** require `wkhtmltopdf` to be installed on the system. If not, only HTML reports are generated.
+- **Do not include malware samples** in the benign folder – it will confuse the model.
 
 
 
