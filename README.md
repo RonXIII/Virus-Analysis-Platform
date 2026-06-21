@@ -1,4 +1,4 @@
-1.  # 🛡️ Virus Analysis Platform (Title)
+1.  # 🛡️ Virus Analysis Platform 
 2.  ✨ Features
 3.  📋 Prerequisites
 4.  🚀 Installation
@@ -309,3 +309,16 @@ Planned features for future releases:
 **Thank you for using the Virus Analysis Platform!** 🛡️
 
 Stay safe, and happy analyzing! 🔍
+
+<img width="399" height="377" alt="Screenshot 2026-06-21 181447" src="https://github.com/user-attachments/assets/8ed7733e-3b37-4de4-b6cc-e744cc7737a9" />
+<img width="1143" height="1058" alt="Screenshot 2026-06-21 181517" src="https://github.com/user-attachments/assets/b2952600-d9d6-489f-9254-ba31486cc31e" />
+<img width="1711" height="856" alt="Screenshot 2026-06-21 182900" src="https://github.com/user-attachments/assets/627b82d4-231f-49e3-9776-febdf4868dc5" />
+<img width="1716" height="880" alt="Screenshot 2026-06-21 182358" src="https://github.com/user-attachments/assets/406e0df1-ca74-488b-8f5f-d8be60eaa66c" />
+<img width="1713" height="880" alt="Screenshot 2026-06-21 182306" src="https://github.com/user-attachments/assets/739e16f9-4a29-4055-8b00-b8d1815dc88a" />
+<img width="1708" height="878" alt="Screenshot 2026-06-21 182244" src="https://github.com/user-attachments/assets/6e2cb9d8-4974-4c4f-9cdd-b1054c764eae" />
+<img width="1707" height="877" alt="Screenshot 2026-06-21 183008" src="https://github.com/user-attachments/assets/3b563d8a-1840-4577-a58e-15843628a7c5" />
+<img width="1711" height="878" alt="Screenshot 2026-06-21 190645" src="https://github.com/user-attachments/assets/524e0487-24f8-4dd5-8280-5a002fa21af0" />
+<img width="1698" height="871" alt="Screenshot 2026-06-21 190537" src="https://github.com/user-attachments/assets/008dfa97-7f35-497d-b892-01c6228a35cd" />
+
+
+
